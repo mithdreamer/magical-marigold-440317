@@ -3,150 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gümrük Uygulamaları</title>
 
 <style>
+
 body{
-    font-family: Arial;
-    margin:40px;
-    background:#f4f6f8;
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
 }
 
 .container{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    max-width:900px;
-    margin:auto;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    width:90%;
+    max-width:1000px;
+    margin:50px auto;
 }
 
-h1{
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h1{
     color:#1f4e79;
+    font-size:38px;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+.title p{
+    color:#555;
+    font-size:18px;
 }
 
-table th, table td{
-    border:1px solid #ccc;
-    padding:12px;
-    text-align:left;
+.card{
+    background:white;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-table th{
-    background:#1f4e79;
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    color:#1f4e79;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.6;
+}
+
+.link-area{
+    margin-top:25px;
+}
+
+.page-link{
+    display:inline-block;
+    text-decoration:none;
     color:white;
-}
-
-.input-group{
-    margin-top:15px;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-}
-
-button{
-    margin-top:20px;
     background:#1f4e79;
-    color:white;
-    border:none;
     padding:12px 20px;
-    cursor:pointer;
-    border-radius:5px;
+    border-radius:6px;
+    margin-right:10px;
+    transition:0.3s;
 }
 
-.result{
-    margin-top:20px;
-    background:#eef5ff;
-    padding:15px;
-    border-radius:5px;
+.page-link:hover{
+    background:#163a59;
 }
+
+.download-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    background:#28a745;
+    padding:12px 20px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#1f7f35;
+}
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    color:#777;
+    font-size:14px;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-<h1>Gümrük Uygulamaları Portalı</h1>
+    <div class="title">
+        <h1>Gümrük Uygulamaları Portalı</h1>
+        <p>Ardiye ve KKDF karşılaştırma uygulamaları</p>
+    </div>
 
-<p>
-Ardiye ve KKDF maliyet karşılaştırma ekranı
-</p>
+    <div class="card">
 
-<table>
-<tr>
-    <th>Kalem</th>
-    <th>Ardiye</th>
-    <th>KKDF</th>
-</tr>
+        <h2>Ardiye ve KKDF Karşılaştırma</h2>
 
-<tr>
-    <td>Hesaplama Türü</td>
-    <td>Günlük Depolama</td>
-    <td>Yüzdesel Kesinti</td>
-</tr>
+        <p>
+            Gümrük işlemlerinde oluşabilecek ardiye ve KKDF maliyetlerini
+            hızlı şekilde karşılaştırmak için geliştirilmiş yardımcı uygulama.
+        </p>
 
-<tr>
-    <td>Etkileyen Faktör</td>
-    <td>Bekleme Süresi</td>
-    <td>Finansman Şekli</td>
-</tr>
+        <div class="link-area">
 
-<tr>
-    <td>Uygulama Alanı</td>
-    <td>Liman / Antrepo</td>
-    <td>İthalat İşlemleri</td>
-</tr>
-</table>
+            <!-- Sayfa Linki -->
+            <a href="ardiye-kkdf.html" class="page-link">
+                Karşılaştırma Sayfasını Aç
+            </a>
 
-<h2>Hesaplama</h2>
+            <!-- Setup EXE -->
+            <a href="setup.exe" class="download-btn">
+                Setup İndir (.exe)
+            </a>
 
-<div class="input-group">
-<label>Mal Bedeli (TL)</label>
-<input type="number" id="bedel">
-</div>
+        </div>
 
-<div class="input-group">
-<label>Ardiye Gün Sayısı</label>
-<input type="number" id="gun">
-</div>
+    </div>
 
-<div class="input-group">
-<label>KKDF Oranı (%)</label>
-<input type="number" id="kkdf">
-</div>
-
-<button onclick="hesapla()">Hesapla</button>
-
-<div class="result" id="sonuc"></div>
+    <div class="footer">
+        © 2026 Gümrük Uygulamaları
+    </div>
 
 </div>
-
-<script>
-function hesapla(){
-
-    let bedel = parseFloat(document.getElementById("bedel").value);
-    let gun = parseFloat(document.getElementById("gun").value);
-    let kkdf = parseFloat(document.getElementById("kkdf").value);
-
-    let ardiye = gun * 150;
-
-    let kkdfTutari = bedel * kkdf / 100;
-
-    document.getElementById("sonuc").innerHTML =
-    `
-    <b>Ardiye Tutarı:</b> ${ardiye.toFixed(2)} TL<br>
-    <b>KKDF Tutarı:</b> ${kkdfTutari.toFixed(2)} TL
-    `;
-}
-</script>
 
 </body>
 </html>
