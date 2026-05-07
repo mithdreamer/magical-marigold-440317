@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zar Oyunu</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#f4f6f9;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+h1{
+    color:#1f4e79;
+}
+
+.zarlar{
+    font-size:120px;
+    margin:20px 0;
+}
+
+button{
+    background:#1f4e79;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+button:hover{
+    background:#163a59;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎲 Zar Oyunu 🎲</h1>
+
+    <div class="zarlar">
+        <span id="zar1">🎲</span>
+        <span id="zar2">🎲</span>
+    </div>
+
+    <button onclick="zarAt()">
+        Zarları At
+    </button>
+
+</div>
+
+<script>
+
+const zarEmoji = {
+    1:"⚀",
+    2:"⚁",
+    3:"⚂",
+    4:"⚃",
+    5:"⚄",
+    6:"⚅"
+};
+
+function rastgeleZar(){
+    return Math.floor(Math.random()*6)+1;
+}
+
+function zarAt(){
+
+    let sayac = 0;
+
+    let animasyon = setInterval(()=>{
+
+        let z1 = rastgeleZar();
+        let z2 = rastgeleZar();
+
+        document.getElementById("zar1").innerText = zarEmoji[z1];
+        document.getElementById("zar2").innerText = zarEmoji[z2];
+
+        sayac++;
+
+        if(sayac >= 10){
+            clearInterval(animasyon);
+        }
+
+    },100);
+}
+
+</script>
+
+</body>
+</html>
