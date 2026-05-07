@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Taş Kağıt Makas</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#f4f6f9;
+    font-family:Arial;
+}
+
+.container{
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#1f4e79;
+    text-align:center;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.score{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.hearts{
+    text-align:center;
+    font-size:30px;
+    color:red;
+    margin:10px 0;
+}
+
+.choices{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
+
+.choice{
+    background:#1f4e79;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.choice:hover{
+    background:#163a59;
+}
+
+.result-area{
+    text-align:center;
+    margin-top:20px;
+}
+
+.pick{
+    font-size:80px;
+}
+
+.result-text{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.history{
+    margin-top:30px;
+}
+
+.history ul{
+    list-style:none;
+    padding:0;
+}
+
+.history li{
+    background:#f1f1f1;
+    margin-bottom:10px;
+    padding:10px;
+    border-radius:6px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    font-size:16px;
+}
+
+.new-game{
+    background:#28a745;
+}
+
+.reset{
+    background:#dc3545;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✊ Taş - Kağıt - Makas ✌️</h1>
+
+    <div class="topbar">
+        <div class="score">
+            Sen: <span id="userScore">0</span>
+        </div>
+
+        <div class="score">
+            Bilgisayar: <span id="computerScore">0</span>
+        </div>
+    </div>
+
+    <div class="hearts">
+        Sen: <span id="userHearts">♥♥♥</span>
+    </div>
+
+    <div class="hearts">
+        Bilgisayar: <span id="computerHearts">♥♥♥</span>
+    </div>
+
+    <div class="choices">
+        <button class="choice" onclick="play('Rock')">✊ Taş</button>
+        <button class="choice" onclick="play('Paper')">✋ Kağıt</button>
+        <button class="choice" onclick="play('Scissors')">✌️ Makas</button>
+    </div>
+
+    <div class="result-area">
+
+        <div>
+            <h3>Sen</h3>
+            <div class="pick" id="userPick">❔</div>
+        </div>
+
+        <div>
+            <h3>Bilgisayar</h3>
+            <div class="pick" id="computerPick">❔</div>
+        </div>
+
+        <div class="result-text" id="resultText">
+            Oyun başladı!
+        </div>
+
+    </div>
+
+    <div class="buttons">
+        <button class="action-btn new-game" onclick="newMatch()">
+            ▶ Yeni Maç
+        </button>
+
+        <button class="action-btn reset" onclick="resetAll()">
+            ↻ Sıfırla
+        </button>
+    </div>
+
+    <div class="history">
+        <h2>Geçmiş Oyunlar</h2>
+
+        <ul id="historyList"></ul>
+    </div>
+
+</div>
+
+<script>
+
+const ICONS = {
+    Rock:"✊",
+    Paper:"✋",
+    Scissors:"✌️"
+};
+
+const CHOICES = ["Rock","Paper","Scissors"];
+
+let maxHearts = 3;
+
+let userHearts = maxHearts;
+let computerHearts = maxHearts;
+
+let userScore = 0;
+let computerScore = 0;
+let gameNo = 0;
+let rounds = 0;
+
+function randomChoice(){
+    return CHOICES[Math.floor(Math.random()*3)];
+}
+
+function updateHearts(){
+
+    document.getElementById("userHearts").innerText =
+        "♥".repeat(userHearts);
+
+    document.getElementById("computerHearts").innerText =
+        "♥".repeat(computerHearts);
+}
+
+function play(userChoice){
+
+    if(userHearts <=0 || computerHearts <=0){
+        return;
+    }
+
+    rounds++;
+
+    let computerChoice = randomChoice();
+
+    document.getElementById("userPick").innerText =
+        ICONS[userChoice];
+
+    document.getElementById("computerPick").innerText =
+        ICONS[computerChoice];
+
+    let result = "";
+
+    if(userChoice === computerChoice){
+
+        result = "Beraberlik!";
+
+    }else if(
+        (userChoice==="Rock" && computerChoice==="Scissors") ||
+        (userChoice==="Paper" && computerChoice==="Rock") ||
+        (userChoice==="Scissors" && computerChoice==="Paper")
+    ){
+
+        result = "Turu kazandın!";
+        computerHearts--;
+
+    }else{
+
+        result = "Bilgisayar kazandı!";
+        userHearts--;
+    }
+
+    updateHearts();
+
+    document.getElementById("resultText").innerText =
+        result + " (Tur " + rounds + ")";
+
+    if(userHearts<=0 || computerHearts<=0){
+
+        let winner = "";
+
+        if(computerHearts<=0){
+
+            winner = "Sen";
+            userScore++;
+
+        }else{
+
+            winner = "Bilgisayar";
+            computerScore++;
+        }
+
+        gameNo++;
+
+        document.getElementById("userScore").innerText =
+            userScore;
+
+        document.getElementById("computerScore").innerText =
+            computerScore;
+
+        addHistory(winner);
+
+        setTimeout(()=>{
+            alert("Maç Bitti! Kazanan: " + winner);
+        },200);
+    }
+}
+
+function addHistory(winner){
+
+    let li = document.createElement("li");
+
+    let date = new Date().toLocaleString();
+
+    li.innerText =
+        "[" + date + "] " +
+        "Maç " + gameNo +
+        " - Kazanan: " + winner +
+        " - Tur: " + rounds;
+
+    document.getElementById("historyList")
+        .prepend(li);
+}
+
+function newMatch(){
+
+    userHearts = maxHearts;
+    computerHearts = maxHearts;
+    rounds = 0;
+
+    updateHearts();
+
+    document.getElementById("resultText").innerText =
+        "Yeni maç başladı!";
+
+    document.getElementById("userPick").innerText = "❔";
+    document.getElementById("computerPick").innerText = "❔";
+}
+
+function resetAll(){
+
+    userScore = 0;
+    computerScore = 0;
+    gameNo = 0;
+
+    document.getElementById("userScore").innerText = 0;
+    document.getElementById("computerScore").innerText = 0;
+
+    document.getElementById("historyList").innerHTML = "";
+
+    newMatch();
+}
+
+updateHearts();
+
+</script>
+
+</body>
+</html>
