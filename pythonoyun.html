@@ -76,7 +76,7 @@
   </style>
 </head>
 <body>
-
+<div id="navbar"></div>
 <header>
   <h1>🎮 Python Oyunlarım</h1>
   <p>Kendi geliştirdiğim oyunlar ve indirilebilir uygulamalar</p>
@@ -117,6 +117,12 @@
 
   </div>
 </div>
-
+<script>
+fetch("/navbar.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+  });
+</script>
 </body>
 </html>
