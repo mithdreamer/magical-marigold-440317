@@ -1,9 +1,5 @@
-<div id="navbar"></div>
-
-<script>
-fetch("/navbar.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
-</script>
+<div class="navbar">
+  <a href="/index.html">Ana Sayfa</a>
+  <a href="/pythonoyun.html">Oyunlar</a>
+  <a href="/uygulamalar.html">Uygulamalar</a>
+</div>
