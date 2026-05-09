@@ -100,7 +100,13 @@ body{
 
 </style>
 </head>
-
+<script>
+fetch("/navbar.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+  });
+</script>
 <body>
 <div id="navbar"></div>
 <div class="container">
