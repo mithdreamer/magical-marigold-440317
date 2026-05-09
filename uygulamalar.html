@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulamalarım</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 15px;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 8px;
+      padding: 8px 12px;
+      background: #38bdf8;
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>🧰 Uygulamalarım</h1>
+  <p>Günlük kullanım için geliştirdiğim araçlar</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+```
+<!-- Uygulama 1 -->
+<div class="card">
+  <h3>Dosya Dönüştürücü</h3>
+  <p>Farklı dosya formatlarını hızlıca dönüştüren araç.</p>
+  <a href="#" class="btn">Kullan</a>
+  <a href="#" class="btn">EXE İndir</a>
+</div>
+
+<!-- Uygulama 2 -->
+<div class="card">
+  <h3>AI Arayüz Oluşturucu</h3>
+  <p>Metin girdisine göre otomatik arayüz oluşturan uygulama.</p>
+  <a href="#" class="btn">Detay</a>
+  <a href="#" class="btn">EXE İndir</a>
+</div>
+
+<!-- Uygulama 3 -->
+<div class="card">
+  <h3>Gümrük Hesaplayıcı</h3>
+  <p>Gümrük işlemlerini kolaylaştıran hesaplama aracı.</p>
+  <a href="#" class="btn">Kullan</a>
+  <a href="#" class="btn">EXE İndir</a>
+</div>
+```
+
+  </div>
+</div>
+
+</body>
+</html>
