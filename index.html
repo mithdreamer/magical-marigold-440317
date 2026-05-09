@@ -1,15 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kişisel Projeler</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #0f172a;
       color: #e2e8f0;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #020617;
+      padding: 12px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .navbar a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    .navbar a:hover {
+      background: #1e293b;
     }
 
     header {
@@ -42,25 +67,30 @@
       padding: 15px;
       margin-top: 15px;
       border-radius: 10px;
+      transition: transform 0.2s;
     }
 
-    .card h3 {
-      margin-top: 0;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .btn {
       display: inline-block;
       margin-top: 10px;
+      margin-right: 8px;
       padding: 8px 12px;
       background: #38bdf8;
       color: black;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
     }
 
     .btn:hover {
-      opacity: 0.8;
+      transform: scale(1.05);
+      opacity: 0.9;
     }
 
     footer {
@@ -71,8 +101,18 @@
       color: #94a3b8;
     }
   </style>
+
 </head>
+
 <body>
+
+  <!-- NAVBAR -->
+
+  <div class="navbar">
+    <a href="/index.html">Ana Sayfa</a>
+    <a href="/pythonoyun.html">Oyunlar</a>
+    <a href="/uygulamalar.html">Uygulamalar</a>
+  </div>
 
   <header>
     <h1>Projelerim</h1>
@@ -81,41 +121,39 @@
 
   <div class="container">
 
-    <div class="section-title">🤖 AI Araçları</div>
+```
+<div class="section-title">🤖 AI Araçları</div>
 
-    <div class="card">
-      <h3>AI Arayüz Üretici</h3>
-      <p>Kullanıcı girdisine göre otomatik arayüz oluşturan Python uygulaması.</p>
-      <a href="#" class="btn">İndir (.exe)</a>
-    </div>
+<div class="card">
+  <h3>AI Arayüz Üretici</h3>
+  <p>Kullanıcı girdisine göre otomatik arayüz oluşturan Python uygulaması.</p>
+  <a href="#" class="btn">İndir (.exe)</a>
+</div>
 
-    <div class="section-title">🛠️ Gümrük Çözümleri</div>
+<div class="section-title">🛠️ Gümrük Çözümleri</div>
 
-    <div class="card">
-      <a href="/gumrukuygulama.html" class="card">
-      <h3>Form Otomasyon Aracı</h3>
-      <p>Gümrük işlemlerini hızlandırmak için geliştirilmiş otomasyon aracı.</p>
-</a>
-    </div>
+<div class="card">
+  <h3>Form Otomasyon Aracı</h3>
+  <p>Gümrük işlemlerini hızlandırmak için geliştirilmiş otomasyon aracı.</p>
+  <a href="/gumrukuygulama.html" class="btn">Detay</a>
+</div>
 
-   
+<div class="section-title">🎮 Oyunlar</div>
 
-    
+<div class="card">
+  <h3>Mini Oyunlar</h3>
+  <p>Basit mekaniklere sahip eğlenceli oyunlar.</p>
+  <a href="/pythonoyun.html" class="btn">Sayfaya Git</a>
+</div>
 
-    <div class="section-title">🎮 Oyunlar</div>
+<div class="section-title">🎸 Müzik & Gitar</div>
 
-    <div class="card">
-      <h3>Mini Oyunlar</h3>
-      <p>Basit mekaniklere sahip eğlenceli bir oyun projesi.</p>
-      <a href="/pythonoyun.html" class="btn">Sayfaya Git</a>
-    </div>
-    <div class="section-title">🎸 Müzik & Gitar</div>
-    
-    <div class="card">
-      <h3>Gitar Pratik Uygulaması</h3>
-      <p>Gam ve egzersizleri takip etmek için basit bir araç.</p>
-      <a href="#" class="btn">Detay</a>
-    </div>
+<div class="card">
+  <h3>Gitar Pratik Uygulaması</h3>
+  <p>Gam ve egzersizleri takip etmek için basit bir araç.</p>
+  <a href="#" class="btn">Detay</a>
+</div>
+```
 
   </div>
 

@@ -45,20 +45,34 @@
       transform: translateY(-5px);
     }
 
-    .btn {
+    /* BUTONLARI BİRLEŞTİRDİK */
+    .page-link, .btn {
       display: inline-block;
       margin-top: 10px;
+      margin-right: 8px;
       padding: 8px 12px;
-      background: #38bdf8;
-      color: black;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
     }
 
-    .btn:hover {
-      opacity: 0.8;
+    .page-link {
+      background: #22c55e; /* yeşil */
+      color: white;
     }
+
+    .btn {
+      background: #38bdf8; /* mavi */
+      color: black;
+    }
+
+    .page-link:hover, .btn:hover {
+      opacity: 0.85;
+      transform: scale(1.03);
+    }
+
   </style>
 </head>
 <body>
@@ -85,10 +99,11 @@
       <p>Python ile geliştirilmiş tavla oyunu.</p>
 
       <a href="https://tavlaoyunu.netlify.app"
-      target="_blank"
-      class="page-link">Oyuna Git</a>
+         target="_blank"
+         class="page-link">Oyuna Git</a>
       
-      <a href="https://github.com/mithdreamer/magical-marigold-440317/releases/download/Tavla_V1/TavlaV1.exe" class="btn">EXE İndir</a>
+      <a href="https://github.com/mithdreamer/magical-marigold-440317/releases/download/Tavla_V1/TavlaV1.exe"
+         class="btn">EXE İndir</a>
     </div>
 
     <!-- Zar Atma Oyunu -->
@@ -96,7 +111,8 @@
       <h3>Zar</h3>
       <p>Yanınızda zar yokken kullanabileceğiniz bir uygulama.</p>
       <a href="/onlinezar.html" class="page-link">Oyuna Git</a>
-      <a href="https://github.com/mithdreamer/magical-marigold-440317/releases/download/Zar_1.0/Zar_Atma_Uygulamasi.exe" class="btn">EXE İndir</a>
+      <a href="https://github.com/mithdreamer/magical-marigold-440317/releases/download/Zar_1.0/Zar_Atma_Uygulamasi.exe"
+         class="btn">EXE İndir</a>
     </div>
 
   </div>
@@ -104,4 +120,3 @@
 
 </body>
 </html>
-
